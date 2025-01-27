@@ -248,15 +248,15 @@ def model_comparison_component(
 
 @dsl.pipeline(name="gemini-tuning-pipeline")
 def gemini_tuning_pipeline(
-    project: str = "genai-mlops-tune-and-eval",
-    location: str = "us-central1",
+    project: str = "YOUR_PROJECT_ID",
+    location: str = "YOUR_REGION",
     source_model_name: str = "gemini-1.5-pro-002",
     train_data_uri: str = "gs://github-repo/generative-ai/gemini/tuning/mlops-tune-and-eval/patient_1_glucose_examples.jsonl",
     # For first run, set `baseline_model_endpoint`` to any tunable Gemini model
     # because a tuned model endpoint doesn't exist yet
     baseline_model_endpoint: str = "gemini-1.5-pro-002",
     # For subsequent runs, set baseline_model_endpoint to a tuned model endpoint
-    # baseline_model_endpoint: str = "projects/824264063118/locations/us-central1/endpoints/797393320253849600",
+    # baseline_model_endpoint: str = "projects/824264063118/locations/YOUR_REGION/endpoints/797393320253849600",
 ) -> None:
     """Defines the pipeline to tune a model and compare it to the previously tuned model"""
     tuning_task = gemini_tuning_component(
